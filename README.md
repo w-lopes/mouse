@@ -39,7 +39,7 @@ seu_usuario ALL=(ALL) NOPASSWD:ALL
 - Botão 6: Nada ainda;
 - Botão 7: Abre um projeto no VS Code e atualiza o git dele (na branch atual);
 - Botão 8: Atualiza projeto da AWS baseado no nome com o domínio;
-- Botão 9: Nada ainda;
+- Botão 9: Commit e push de projeto (na branch corrente);
 - Botão 10: Limpa buffer da memória e swap (pq nem todo dia é perfeito);
 - Botão 11: Encerra os containers de desenvolvimento (LXC);
 - Botão 12: Inicia os containers de desenvolvimento (LXC).
