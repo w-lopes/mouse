@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Abrir um projeto no VS Code.
+# Conferir se a pasta dos projetos esta no mesmo diretorio da variavel
+
+# Diretorio dos projetos
+PROJ_PATH="/home/$USER/Documents/Projects/";
+TITLE="Open project"
+
+# Coleta nome do projeto (pasta)
+PROJECT=$(zenity --entry --title="$TITLE" --text="Enter project name");
+FULL_PATH="$PROJ_PATH$PROJECT"
+
+# Vazio?
+if [ -z "$PROJECT" ]; then
+    notify-send $TITLE "Project name is empty! :("
+    exit 1;
+fi
+
+# Verificacao de diretorio
+if [ ! -d $FULL_PATH ]; then
+    notify-send $TITLE "$FULL_PATH\nNOT FOUND!";
+    exit ;
+fi
+
+# Abrir projeto
+code $FULL_PATH
+
+# Uma ultima preguicinha...
+if [ -d "$FULL_PATH/.git" ]; then
+    git --git-dir="$FULL_PATH/.git" pull;
+fi

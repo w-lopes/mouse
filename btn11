@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Para meu ambiente de desenvolvimento...
+# Mimimimi, docker, mimimi... NAH!
+
+sudo lxc-stop web;
+sudo lxc-stop psql;
+
+notify-send DEV "LXC (web, psql) stopped";

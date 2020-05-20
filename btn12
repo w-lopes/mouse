@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Inicia meu ambiente de desenvolvimento...
+# Mimimimi, docker, mimimi... NAH!
+
+sudo lxc-start web;
+sudo lxc-start psql;
+
+notify-send DEV "LXC (web, psql) started";

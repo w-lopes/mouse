@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Atualizar um projeto na AWS...
+# Mimimi automatizar o git mimimi... NÃO! Só eu atualizo essa merda '¬¬
+# Manter o nome da pasta, do .pem o mesmo do dominio... Ou edita o script, caguei. :)
+
+TITLE="Update Server";
+
+# Coleta nome do projeto
+PROJECT=$(zenity --entry --title="$TITLE" --text="Enter project name");
+
+# Vazio?
+if [ -z "$PROJECT" ]; then
+    notify-send "$TITLE" "Project name is empty! :("
+    exit 1;
+fi
+
+# Diretorio da chave (aqui do projeto mesmo...)
+HERE="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )";
+KEY="$HERE/aws_keys/$PROJECT.pem";
+
+sudo chmod 400 $KEY;
+
+notify-send "$TITLE" "Updating $PROJECT...";
+
+# Aham... o comando 'update' no server faz uma puta rotina :)
+ssh -o "StrictHostKeyChecking no" -i "$KEY" ubuntu@$PROJECT.com.br 'update';
+
+notify-send "$TITLE" "$PROJECT updated!";
