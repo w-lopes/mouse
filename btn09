@@ -30,7 +30,7 @@ if [ -d "$FULL_PATH/.git" ]; then
     cd $FULL_PATH;
     git add .;
     git commit -m "$COMMIT";
-    git push;
+    git push origin $(git branch | awk '{print $2}');
 fi
 
 notify-send "$TITLE" "$PROJECT commited and pushed!";
