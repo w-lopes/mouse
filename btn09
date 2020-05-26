@@ -5,7 +5,7 @@
 
 # Diretorio dos projetos
 PROJ_PATH="/home/$USER/Documents/Projects/";
-TITLE="Commit project brach"
+TITLE="Commit project branch"
 
 # Coleta nome do projeto (pasta)
 PROJECT=$(zenity --entry --title="$TITLE" --text="Project");
