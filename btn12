@@ -3,6 +3,9 @@
 # Inicia meu ambiente de desenvolvimento...
 # Mimimimi, docker, mimimi... NAH!
 
+sudo service lxc start;
+sudo service lxc-net start;
+
 sudo lxc-start web;
 sudo lxc-start psql;
 

@@ -6,4 +6,7 @@
 sudo lxc-stop web;
 sudo lxc-stop psql;
 
+sudo service lxc stop;
+sudo service lxc-net stop;
+
 notify-send DEV "LXC (web, psql) stopped";
