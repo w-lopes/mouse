@@ -41,8 +41,8 @@ seu_usuario ALL=(ALL) NOPASSWD:ALL
 - Botão 8: Atualiza projeto da AWS baseado no nome com o domínio;
 - Botão 9: Commit e push de projeto (na branch corrente);
 - Botão 10: Limpa buffer da memória e swap (pq nem todo dia é perfeito);
-- Botão 11: Encerra os containers de desenvolvimento (LXC);
-- Botão 12: Inicia os containers de desenvolvimento (LXC).
+- Botão 11: Encerra um ambiente do docker baseado no nome do projeto;
+- Botão 12: Inicia um ambiente do docker baseado no nome do projeto.
 
 ### Resto...
 

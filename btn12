@@ -1,12 +1,23 @@
 #!/bin/bash
 
-# Inicia meu ambiente de desenvolvimento...
-# Mimimimi, docker, mimimi... NAH!
+# Inicia um container do docker se tem um Makefile bunitin rodando...
 
-sudo service lxc start;
-sudo service lxc-net start;
+TITLE="Start project";
 
-sudo lxc-start web;
-sudo lxc-start psql;
+# Coleta nome do projeto
+PROJECT=$(zenity --entry --title="$TITLE" --text="Enter project name");
 
-notify-send DEV "LXC (web, psql) started";
+# Vazio?
+if [ -z "$PROJECT" ]; then
+    notify-send "$TITLE" "Project name is empty! :("
+    exit 1;
+fi
+
+# Roda a bagaça
+PROJ_PATH="/home/$USER/Documents/Projects/$PROJECT/";
+
+cd $PROJ_PATH && make background
+
+firefox http://localhost:$(cat $PROJ_PATH/docker-compose.yml | grep 80\" | sed -E 's/.*\s"//;s/:.*//')
+
+notify-send "$TITLE" "$PROJECT started!";
