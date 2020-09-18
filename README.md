@@ -11,6 +11,7 @@ Depende de qual botão... mas no geral:
 - zenity
 - code (VS Code)
 - git
+- docker
 
 ### Configurações necessárias
 
